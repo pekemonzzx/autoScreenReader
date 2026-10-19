@@ -1,0 +1,20 @@
+# 开发期依赖（本机：开发 + 训练 + 打包 + 基准测试）
+# 安装： py -3.11 -m venv .venv  &&  .\.venv\Scripts\python -m pip install -r requirements\dev.txt
+
+# --- 截屏 ---
+mss>=9.0
+dxcam>=0.0.5            # DXGI Desktop Duplication；若安装失败可去掉，capture 会自动回退 mss
+numpy>=1.26,<3
+
+# --- OCR（CPU 推理，刻意不占显存）---
+rapidocr>=3.0
+onnxruntime>=1.17
+
+# --- 音频 ---
+sounddevice>=0.4.6
+
+# --- 基准 / 标注 ---
+pillow>=10.0
+
+# --- 打包 ---
+pyinstaller>=6.0

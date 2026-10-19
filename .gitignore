@@ -1,0 +1,53 @@
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# ---- 构建产物 ----
+build/
+dist/
+*.spec
+bench_out/
+
+# ---- 运行时（9 GB，第三方内容，用 --runtime install 下载）----
+gsv/
+vendor/
+
+# ---- 声库：只保留档案结构，不上传音频与权重 ----
+# 微调权重单文件 100+ MB，超过 GitHub 硬限制，且是真人声音克隆结果
+voices/
+*.voicepack.zip
+*.pth
+*.ckpt
+
+# ---- 数据：训练语料、中间产物、日志、真实文件名 ----
+data/*
+!data/config.example.json
+!data/sample_source.txt
+*.m4a
+*.mp4
+*.flac
+
+# ---- 发布包 ----
+release_*/
+*.zip
+*.7z
+
+# ---- 日志与临时文件 ----
+*.log
+.env
+pip-*
+
+# ---- 测试/工具跑出来的临时目录 ----
+tmp*/
+sr_testcfg_*/
+sr_uismoke_*/
+
+# ---- 系统 ----
+Thumbs.db
+desktop.ini
+.DS_Store

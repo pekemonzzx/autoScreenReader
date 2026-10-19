@@ -1,0 +1,10 @@
+# 目标机 "GPU 运行时" 外挂包（首次运行按需下载，约 2.5-3GB）
+# 通用依赖，不含模型资产
+
+# ONNX 路线的 GPU 加速（三者按目标机显卡择一）
+onnxruntime-directml>=1.17     # 任意 DX12 显卡，零 CUDA 依赖（推荐）
+# onnxruntime-gpu>=1.17        # 需另附 CUDA 12 + cuDNN 9 DLL
+
+# 原生 torch 路线（效果最好，显存约 2-3GB）
+# torch --index-url https://download.pytorch.org/whl/cu124
+# torchaudio --index-url https://download.pytorch.org/whl/cu124

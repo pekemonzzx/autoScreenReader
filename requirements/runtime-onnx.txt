@@ -1,0 +1,9 @@
+# 目标机运行期依赖（ONNX 轻量版，不含 torch）
+# 由 PyInstaller 打包进"主安装包"
+
+numpy>=1.26,<3
+onnxruntime>=1.17
+rapidocr>=3.0
+mss>=9.0
+sounddevice>=0.4.6
+lunavox-tts>=1.0        # GPT-SoVITS ONNX 推理引擎；中文前端见方案 §3.2 的 P3 验证项

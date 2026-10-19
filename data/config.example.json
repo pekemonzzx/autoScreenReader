@@ -1,0 +1,73 @@
+{
+  "capture": {
+    "backend": "auto",
+    "monitor_index": 0,
+    "region": null
+  },
+  "ocr": {
+    "det_limit_side_len": 960,
+    "use_cls": true,
+    "intra_threads": 0,
+    "autotune": true,
+    "max_lines": 25,
+    "min_score": 0.5,
+    "skip_unchanged_frame": true
+  },
+  "segment": {
+    "split_chars": "。！？!?；;…",
+    "soft_split_chars": "，,、",
+    "min_chars": 4,
+    "max_chars": 28,
+    "merge_gap_chars": 0
+  },
+  "tts": {
+    "backend": "gsv_api",
+    "api_url": "http://127.0.0.1:9880",
+    "voice": "",
+    "runtime_root": "",
+    "ref_audio": "",
+    "prompt_text": "",
+    "prompt_lang": "zh",
+    "text_lang": "zh",
+    "speed_factor": 1.0,
+    "streaming": true,
+    "split_method": "cut5",
+    "sample_steps": 32,
+    "timeout_s": 60.0
+  },
+  "audio": {
+    "device": "",
+    "samplerate": 0,
+    "blocksize": 0,
+    "latency": "low",
+    "volume": 100
+  },
+  "cache": {
+    "enabled": true,
+    "dir": "",
+    "max_entries": 500,
+    "max_mb": 512,
+    "ttl_s": 30.0,
+    "clear_on_exit": true
+  },
+  "snap": {
+    "hotkey": "ctrl+alt+s",
+    "mode": "paragraph",
+    "auto_remove": true
+  },
+  "pipeline": {
+    "skip_unchanged": true,
+    "min_interval_s": 0.5,
+    "synth_workers": 1,
+    "prebuffer_chunks": 2,
+    "interrupt_on_new": false,
+    "max_backlog": 8,
+    "dedupe_lines": true,
+    "auto_read_all": false,
+    "similarity": 0.85,
+    "refresh_ratio": 0.6
+  },
+  "log_level": "INFO",
+  "regions": [],
+  "overlay_opacity": 100
+}

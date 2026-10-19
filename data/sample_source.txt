@@ -1,0 +1,4 @@
+﻿# 指向一份可用于测试/分析的源素材（m4a / wav / mp4 / flac）
+# 不填的话程序会自动在 data/ 下找最新的音频文件
+# 也可以直接用环境变量 SCREENREADER_SAMPLE 覆盖
+data/sample.m4a
