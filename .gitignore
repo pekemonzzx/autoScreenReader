@@ -14,18 +14,21 @@ dist/
 bench_out/
 
 # ---- 运行时（9 GB，第三方内容，用 --runtime install 下载）----
-gsv/
+# 只保留说明文件，让目录结构在仓库里可见
+gsv/*
+!gsv/README.md
 vendor/
 
 # ---- 声库：只保留档案结构，不上传音频与权重 ----
 # 微调权重单文件 100+ MB，超过 GitHub 硬限制，且是真人声音克隆结果
-voices/
+voices/*
+!voices/README.md
 *.voicepack.zip
 *.pth
 *.ckpt
 
 # ---- 数据：训练语料、中间产物、日志、真实文件名 ----
-data/*
+data/
 !data/config.example.json
 !data/sample_source.txt
 *.m4a
