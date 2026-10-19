@@ -1,6 +1,6 @@
 """screenreader —— 截屏 → OCR → 分句 TTS → 直播软件 的桌面读屏工具。"""
 
-__version__ = "0.2.0"
+__version__ = "0.8.3"
 
 from .audio import DeviceInfo, Player, find_output_device, list_output_devices
 from .cache import AudioCache, make_key, wav_from_pcm, wav_info

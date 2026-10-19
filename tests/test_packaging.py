@@ -1126,6 +1126,33 @@ def test_install_any_shapes():
 
 
 # --------------------------------------------------------------------------- #
+
+def test_version_consistency():
+    """版本号必须两处一致，否则用户敲 `--version` 会看到驴唇不对马嘴的数字。
+
+    实际踩过：`packaging/installer.iss` 已经是 0.8.3，
+    但 `src/screenreader/__init__.py` 还停在 0.2.0 —— 打包出来的 exe
+    一敲 `--version` 打印 0.2.0。
+    """
+    import re
+    from pathlib import Path
+
+    print("\n[版本号一致性]")
+    root = Path(__file__).resolve().parents[1]
+    init = (root / "src" / "screenreader" / "__init__.py").read_text(encoding="utf-8")
+    m1 = re.search(r'__version__\s*=\s*"([^"]+)"', init)
+    check("__init__.py 里有 __version__", m1 is not None)
+    ver_pkg = m1.group(1) if m1 else "?"
+
+    iss = (root / "packaging" / "installer.iss").read_text(encoding="utf-8")
+    m2 = re.search(r'MyAppVersion\s+"([^"]+)"', iss)
+    check("installer.iss 里有 MyAppVersion", m2 is not None)
+    ver_iss = m2.group(1) if m2 else "?"
+
+    check("[包] 与 [安装包] 版本一致（%s vs %s）" % (ver_pkg, ver_iss),
+          ver_pkg == ver_iss, "%s != %s" % (ver_pkg, ver_iss))
+    check("版本号形如 x.y.z", bool(re.fullmatch(r"\d+\.\d+\.\d+", ver_pkg)), ver_pkg)
+
 def main() -> int:
     for fn in (
         test_pack_and_install,
@@ -1157,6 +1184,7 @@ def main() -> int:
         test_start_is_not_blocking,
         test_human_eta,
         test_install_any_shapes,
+        test_version_consistency,
     ):
         fn()
     print("\n" + "=" * 60)
